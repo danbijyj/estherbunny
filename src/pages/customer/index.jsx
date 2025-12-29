@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { pagenationActions } from '../../store/modules/pagenationSlice';
 
-import CustomerLIst from '../../components/customer/CustomerLIst';
+import CustomerList from '../../components/customer/CustomerList';
 import Pagination from '../../components/pagination';
 import { CustomerStyle } from './style';
 
@@ -21,7 +21,7 @@ const Customer = () => {
         <CustomerStyle>
             <div className="inner">
                 <h2>고객문의</h2>
-                <CustomerLIst />
+                <CustomerList />
                 <Pagination />
             </div>
         </CustomerStyle>
