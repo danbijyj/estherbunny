@@ -13,6 +13,13 @@ const MainReview = () => {
     const dispatch = useDispatch();
     const { reviews, loading } = useSelector((state) => state.review);
 
+    const chunk = (arr, size) =>
+        Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
+            arr.slice(i * size, i * size + size)
+        );
+
+    const reviewPages = chunk(reviews, 6);
+
     useEffect(() => {
         dispatch(getReviews());
     }, [dispatch]);
@@ -25,21 +32,20 @@ const MainReview = () => {
                     <p>Loading...</p>
                 ) : (
                     <Swiper
-                        slidesPerView={3}
-                        grid={{
-                            rows: 2,
-                            fill: 'row',
-                        }}
-                        spaceBetween={40}
-                        pagination={{
-                            clickable: true,
-                        }}
-                        modules={[Grid, Pagination]}
-                        className="mySwiper"
+                        slidesPerView={1}
+                        pagination={{ clickable: true }}
+                        modules={[Pagination]}
                     >
-                        {reviews.map((review) => (
-                            <SwiperSlide key={review.id}>
-                                <MainReviewItem review={review} />
+                        {reviewPages.map((page, idx) => (
+                            <SwiperSlide key={idx}>
+                                <div className="review_grid">
+                                    {page.map((review) => (
+                                        <MainReviewItem
+                                            key={review.id}
+                                            review={review}
+                                        />
+                                    ))}
+                                </div>
                             </SwiperSlide>
                         ))}
                     </Swiper>

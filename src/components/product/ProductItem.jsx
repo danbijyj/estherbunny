@@ -3,17 +3,7 @@ import { cartActions } from '../../store/modules/cartSlice';
 import { MainButtonStyle, SmallButtonStyle } from '../../ui/style';
 
 const ProductItem = ({ product }) => {
-    const {
-        id,
-        image,
-        title,
-        price,
-        description,
-        category,
-        rating,
-        quantity,
-        itemtotal,
-    } = product;
+    const { id, image, title, price, description, category } = product;
     const dispatch = useDispatch();
     const { carts } = useSelector((state) => state.cart);
     return (

@@ -37,20 +37,32 @@ export const cartSlice = createSlice({
             localStorage.setItem('carts', JSON.stringify(state.carts));
         },
         searchCart: (state, action) => {
-            const text = action.payload;
-            state.products = productData.filter((product) =>
-                product.category.toLowerCase().includes(text.toLowerCase())
+            const text = action.payload.toLowerCase();
+            state.products = productData.filter(
+                (product) =>
+                    product.title.toLowerCase().includes(text) ||
+                    product.description.toLowerCase().includes(text) ||
+                    product.category.toLowerCase().includes(text)
             );
             localStorage.setItem('carts', JSON.stringify(state.carts));
         },
         sortCart: (state, action) => {
-            const text = action.payload;
-            if (text !== '') {
-                state.products = [...state.products].sort((a, b) =>
-                    a[text] > b[text] ? 1 : -1
-                );
-            }
-            localStorage.setItem('carts', JSON.stringify(state.carts));
+            const type = action.payload;
+            if (!type) return;
+            state.products = [...state.products].sort((a, b) => {
+                switch (type) {
+                    case 'priceAsc':
+                        return a.price - b.price;
+                    case 'priceDesc':
+                        return b.price - a.price;
+                    case 'title':
+                        return a.title.localeCompare(b.title, 'ko');
+                    case 'category':
+                        return a.category.localeCompare(b.category, 'ko');
+                    default:
+                        return 0;
+                }
+            });
         },
         resetCart: (state, action) => {
             state.products = productData;

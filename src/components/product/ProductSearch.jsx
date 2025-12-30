@@ -1,5 +1,4 @@
 import { ProductSearchWrap } from './style';
-import Button from '../../ui/Button';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { cartActions } from '../../store/modules/cartSlice';
@@ -12,22 +11,34 @@ const ProductSearch = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         dispatch(cartActions.searchCart(text));
+        setText('');
     };
 
     const onSort = (e) => {
-        e.preventDefault();
         const { value } = e.target;
+        if (value === '') {
+            onReset();
+            return;
+        }
         dispatch(cartActions.sortCart(value));
     };
 
     const onReset = (e) => {
-        e.preventDefault();
+        e?.preventDefault();
         dispatch(cartActions.resetCart());
+        setText('');
     };
 
     const changeInput = (e) => {
-        const { value } = e.target;
-        setText(value);
+        setText(e.target.value);
+    };
+
+    const onKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            dispatch(cartActions.searchCart(text));
+            setText('');
+        }
     };
 
     return (
@@ -37,31 +48,28 @@ const ProductSearch = () => {
                     <select onChange={onSort}>
                         <option value="">상품 정렬</option>
                         <option value="title">제품명순</option>
-                        <option value="price">가격순</option>
+                        <option value="priceAsc">낮은가격순</option>
+                        <option value="priceDesc">높은가격순</option>
                         <option value="category">카테고리순</option>
                     </select>
-                    <SmallButtonStyle
-                        style={{ width: '80px', fontSize: '14px' }}
-                        onClick={onReset}
-                    >
+                    <SmallButtonStyle onClick={onReset}>
                         초기화
                     </SmallButtonStyle>
                 </p>
                 <p>
                     <input
                         type="text"
-                        name="text"
-                        id=""
+                        value={text}
                         onChange={changeInput}
+                        onKeyDown={onKeyDown}
                         placeholder="제품을 검색 하세요."
                     />
-                    <MainButtonStyle
-                        type="submit"
-                        text="검색"
-                        style={{ width: '80px', fontSize: '14px' }}
-                    >
+                    <MainButtonStyle type="submit" text="검색">
                         검색
                     </MainButtonStyle>
+                    <SmallButtonStyle onClick={onReset}>
+                        초기화
+                    </SmallButtonStyle>
                 </p>
             </form>
         </ProductSearchWrap>

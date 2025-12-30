@@ -14,7 +14,6 @@ export const ProductSearchWrap = styled.div`
                 padding: 10px;
                 border: 1px solid #000;
                 border-radius: 20px;
-                margin-right: 8px;
             }
             input[type='text'] {
                 width: 350px;
@@ -23,7 +22,11 @@ export const ProductSearchWrap = styled.div`
                 padding: 10px;
                 border: 1px solid #000;
                 border-radius: 20px;
-                margin-right: 8px;
+            }
+            button {
+                margin-left: 8px;
+                width: 80px;
+                font-size: 14px;
             }
         }
     }

@@ -205,22 +205,26 @@ export const MainReviewStyle = styled.section`
             font-weight: 600;
         }
         .swiper {
-            width: 100%;
-            padding: 0 24px 50px;
+            padding-bottom: 52px;
+            .swiper-wrapper {
+                gap: 0;
+            }
         }
         .swiper-pagination-bullet {
             background-color: #000;
             opacity: 1;
+            width: 12px;
+            height: 12px;
         }
         .swiper-pagination-bullet-active {
             background-color: #898dee;
         }
-        .swiper-slide {
-            box-sizing: border-box;
-            padding: 2px;
+        .review_grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
         }
         .review_item {
-            height: 100%;
             border: 2px solid #000;
             border-radius: 16px;
             padding: 20px;
