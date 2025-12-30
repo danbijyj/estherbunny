@@ -1,12 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React와 Redux Toolkit 기반의 이커머스 미니 프로젝트로,<br>
+상품, 장바구니, 인증, 게시판, 리뷰 등 핵심 기능을 실제 서비스 흐름에 맞춰 구현했습니다.<br>
+카카오 로그인을 포함한 인증 처리와 전역 상태 설계를 적용했으며, 기획부터 디자인, 구현까지 전 과정을 단독으로 진행했습니다.
