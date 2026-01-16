@@ -145,6 +145,7 @@ export const MainBestStyle = styled.section`
             box-sizing: border-box;
             margin: 0 24px;
             text-align: center;
+            cursor: pointer;
             img {
                 width: 100%;
                 border-radius: 12px;

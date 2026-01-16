@@ -7,6 +7,7 @@ import { MainButtonStyle, SmallButtonStyle } from '../../ui/style';
 const ProductSearch = () => {
     const dispatch = useDispatch();
     const [text, setText] = useState('');
+    const [sort, setSort] = useState('');
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -15,7 +16,8 @@ const ProductSearch = () => {
     };
 
     const onSort = (e) => {
-        const { value } = e.target;
+        const value = e.target.value;
+        setSort(value);
         if (value === '') {
             onReset();
             return;
@@ -27,6 +29,7 @@ const ProductSearch = () => {
         e?.preventDefault();
         dispatch(cartActions.resetCart());
         setText('');
+        setSort('');
     };
 
     const changeInput = (e) => {
@@ -45,7 +48,7 @@ const ProductSearch = () => {
         <ProductSearchWrap>
             <form onSubmit={onSubmit}>
                 <p>
-                    <select onChange={onSort}>
+                    <select value={sort} onChange={onSort}>
                         <option value="">상품 정렬</option>
                         <option value="title">제품명순</option>
                         <option value="priceAsc">낮은가격순</option>
@@ -53,7 +56,7 @@ const ProductSearch = () => {
                         <option value="category">카테고리순</option>
                     </select>
                     <SmallButtonStyle onClick={onReset}>
-                        초기화
+                        정렬초기화
                     </SmallButtonStyle>
                 </p>
                 <p>
@@ -68,7 +71,7 @@ const ProductSearch = () => {
                         검색
                     </MainButtonStyle>
                     <SmallButtonStyle onClick={onReset}>
-                        초기화
+                        검색초기화
                     </SmallButtonStyle>
                 </p>
             </form>

@@ -19,13 +19,13 @@ export const ProductSearchWrap = styled.div`
                 width: 350px;
                 box-sizing: border-box;
                 height: 48px;
-                padding: 10px;
+                padding: 10px 20px;
                 border: 1px solid #000;
                 border-radius: 20px;
             }
             button {
                 margin-left: 8px;
-                width: 80px;
+                width: 96px;
                 font-size: 14px;
             }
         }

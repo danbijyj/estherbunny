@@ -13,7 +13,7 @@ const Header = () => {
                 <NavStyle className="nav">
                     <ul>
                         <li>
-                            <Link to="/about">About</Link>
+                            <Link to="/about">Brand</Link>
                         </li>
                         <li>
                             <Link to="/book">News</Link>
