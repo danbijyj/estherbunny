@@ -12,11 +12,10 @@ const Book = () => {
         (state) => state.books
     );
     useEffect(() => {
-        dispatch(getNews()); // 데이터 가져오기
-        dispatch(booksActions.startPage()); // 페이지 초기화
+        dispatch(getNews());
+        dispatch(booksActions.startPage());
     }, []);
 
-    // 페이지 변경될 때 로딩 후 데이터 불러오기
     useEffect(() => {
         dispatch(booksActions.setLoading(true));
         const timer = setTimeout(() => {
@@ -25,7 +24,6 @@ const Book = () => {
         return () => clearTimeout(timer);
     }, [page]);
 
-    // 무한 스크롤 이벤트
     useEffect(() => {
         const handleScroll = () => {
             const { scrollTop, scrollHeight, clientHeight } =

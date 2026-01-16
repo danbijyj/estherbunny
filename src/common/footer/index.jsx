@@ -7,9 +7,7 @@ const Footer = () => {
                 <p></p>
             </div>
             <div className="inner">
-                <h2>
-                    <span>ESTHER BUNNY</span>
-                </h2>
+                <h2>ESTHER BUNNY</h2>
                 <div className="service">
                     <span>이용약관</span>
                     <span>개인정보취급방침</span>

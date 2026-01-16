@@ -22,16 +22,6 @@ export const FooterStyle = styled.footer`
             font-size: 24px;
             font-weight: 600;
             color: #ef4da2;
-            span {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid #ef4da2;
-                border-radius: 50%;
-                padding: 24px 20px 20px;
-                box-sizing: border-box;
-                line-height: 1;
-            }
         }
         .service {
             span {
