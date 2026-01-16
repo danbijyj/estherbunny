@@ -96,6 +96,7 @@ export const MainCategoryStyle = styled.section`
             .category_item {
                 cursor: pointer;
                 text-align: center;
+                transition: 0.2s ease;
                 img {
                     width: 170px;
                     border-radius: 50%;
@@ -105,6 +106,12 @@ export const MainCategoryStyle = styled.section`
                 }
                 h3 {
                     font-weight: 600;
+                }
+                &:hover {
+                    transform: translateY(-5px);
+                    h3 {
+                        color: #ef4da2;
+                    }
                 }
             }
         }
